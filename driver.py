@@ -19,14 +19,14 @@ print 'uploaded: ', response
 os.remove(compressedFile)
 
 #back up the database
-DB_HOST = 'asdf'
-DB_USER = 'asdf'
-DB_USER_PASSWORD = 'asdf'
-DB_NAME = 'asdf'
-os.system("mysqldump --add-drop-table -c -u " + DB_USER + " -p " + DB_USER_PASSWORD + DB_NAME > dateOfBackup + ".sql")
+DB_HOST = "localhost"
+DB_USER = "asdf"
+DB_USER_PASSWORD = "asdf"
+DB_NAME = "asdf"
+os.system("mysqldump --add-drop-table -c -u " + str(DB_USER) + " -p " + str(DB_USER_PASSWORD) + str(DB_NAME) + ";" > "asdf" + ".sql")
 compressedFile = "database" + dateOfBackup + ".tar.gz"
 tar = tarfile.open(compressedFile, "w:gz")
-tar.add(dateOfBackup + ".sql")
+tar.add("asdf" + ".sql")
 tar.close()
 #add the database to dropbox
 client = dropbox.client.DropboxClient("asdf")
