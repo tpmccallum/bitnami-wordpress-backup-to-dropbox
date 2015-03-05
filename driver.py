@@ -8,14 +8,14 @@ compressedFile = "content" + dateOfBackup + ".tar.gz"
 tar = tarfile.open(compressedFile, "w:gz")
 tar.add("/home/bitnami/apps/wordpress/htdocs/wp-content/")
 tar.close()
-add the content to dropbox
+#add the content to dropbox
 client = dropbox.client.DropboxClient("asdf")
 print 'linked account: ', client.account_info()
 
 f = open(compressedFile, 'rb')
 response = client.put_file(compressedFile, f)
 print 'uploaded: ', response
-clean up
+#clean up
 os.remove(compressedFile)
 
 #back up the database
