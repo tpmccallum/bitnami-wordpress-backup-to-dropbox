@@ -21,3 +21,6 @@ password=asdf
 ```
 
 Download the Python file called driver.py and run it from the users home directory
+```
+sudo python driver.py
+```
