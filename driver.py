@@ -5,7 +5,7 @@ import time
 
 #functions
 def addContentToDropbox(compressedFile):
-  client = dropbox.client.DropboxClient("_GSRrTwYHmEAAAAAAAAABW3vaBdS5B9bYSkBgnO0MJsGFihL0GAa2Zao2icFQiuu")
+  client = dropbox.client.DropboxClient("asdf")
   print 'linked account: ', client.account_info()
   f = open(compressedFile, 'rb')
   response = client.put_file(compressedFile, f)
@@ -24,7 +24,7 @@ addContentToDropbox(compressedFileC)
 os.remove(compressedFileC)
 
 #back up the database
-sqlCommand = """/opt/bitnami/mysql/bin/mysqldump --add-drop-table > database.sql"""
+sqlCommand = """/opt/bitnami/mysql/bin/mysqldump --all-databases --add-drop-table > database.sql"""
 os.system(sqlCommand)
 compressedFileD = "database" + dateOfBackup + ".tar.gz"
 tar = tarfile.open(compressedFileD, "w:gz")
