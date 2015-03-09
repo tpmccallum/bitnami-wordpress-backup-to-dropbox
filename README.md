@@ -24,3 +24,12 @@ Download the Python file called driver.py and run it from the users home directo
 ```
 sudo python driver.py
 ```
+
+## I decided to add this to the system cron
+```
+sudo crontab -e
+```
+```
+01 01 * * * /usr/bin/python /home/bitnami/backup_wordpress_to_dropbox.py > /tmp/wordpress_backup_script.py.log 2>&1
+```
+
