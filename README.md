@@ -12,8 +12,13 @@ sudo pip install dropbox
 Head over to Dropbox and create an app using the App Console (Dropbox API APP with data access as files and datastores).
 Click the "generate access token" button and past it into the driver.py file where it says "asdf"
 
-## Create mysqldump credentials 
-Make a file called .my.cnf in your home directory and add the following lines (also make sure permissions are set correctly)
+## Create mysqldump credentials
+Add the following to the 
+```
+/opt/bitnami/mysql/bitnami/my.cnf
+```
+file (make that the username and password you use actually have the ability to back up the database, try it out manually first using a mysqldump command)
+
 ```
 [mysqldump]
 user=asdf
