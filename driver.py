@@ -5,32 +5,32 @@ import time
 
 #functions
 def addContentToDropbox(compressedFile):
-  client = dropbox.client.DropboxClient("asdf")
+  client = dropbox.client.DropboxClient("_GSRrTwYHmEAAAAAAAAABW3vaBdS5B9bYSkBgnO0MJsGFihL0GAa2Zao2icFQiuu")
   print 'linked account: ', client.account_info()
   f = open(compressedFile, 'rb')
   response = client.put_file(compressedFile, f)
   print 'uploaded: ', response
 
-
+#get the date
+dateOfBackup = time.strftime("%Y-%m-%d")
 #back up the content
-dateOfBackup = time.strftime("%Y-%m-%d") 
-compressedFile = "content" + dateOfBackup + ".tar.gz"
-tar = tarfile.open(compressedFile, "w:gz")
+compressedFileC = "content" + dateOfBackup + ".tar.gz"
+tar = tarfile.open(compressedFileC, "w:gz")
 tar.add("/home/bitnami/apps/wordpress/htdocs/wp-content/")
 tar.close()
 #add the content to dropbox
-addContentToDropbox(compressedFile)
+addContentToDropbox(compressedFileC)
 #clean up
-os.remove(compressedFile)
+os.remove(compressedFileC)
 
 #back up the database
-sqlCommand = """mysqldump --add-drop-table > database.sql"""
+sqlCommand = """/opt/bitnami/mysql/bin/mysqldump --add-drop-table > database.sql"""
 os.system(sqlCommand)
-compressedFile = "database" + dateOfBackup + ".tar.gz"
-tar = tarfile.open(compressedFile, "w:gz")
-tar.add("asdf" + ".sql")
+compressedFileD = "database" + dateOfBackup + ".tar.gz"
+tar = tarfile.open(compressedFileD, "w:gz")
+tar.add("database.sql")
 tar.close()
 #add the database to dropbox
-addContentToDropbox(compressedFile)
+addContentToDropbox(compressedFileD)
 #clean up
-os.remove(compressedFile)
+os.remove(compressedFileD)
