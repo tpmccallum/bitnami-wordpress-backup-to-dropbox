@@ -32,4 +32,5 @@ sudo crontab -e
 ```
 01 01 * * * /usr/bin/python /home/bitnami/backup_wordpress_to_dropbox.py > /tmp/wordpress_backup_script.py.log 2>&1
 ```
+Make sure that you have the right permissions and test each command seperately, also go to the backup area and restore the entire system at least once to ensure success. For example open the sql file and read it to make sure that it worked and open the content file and make sure that it worked; don't go by file size alone TEST!!!
 
