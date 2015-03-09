@@ -10,6 +10,9 @@ sudo pip install dropbox
 ```
 ## Install Dropbox API
 Head over to Dropbox and create an app using the App Console (Dropbox API APP with data access as files and datastores).
+```
+https://www.dropbox.com/developers/apps/create
+```
 Click the "generate access token" button and past it into the driver.py file where it says "asdf"
 
 ## Create mysqldump credentials
